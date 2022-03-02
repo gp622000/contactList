@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <title><%= locals.title %></title>
+  </head>
+  <body>
+    <h1>Rendered from ejs view <%= title %></h1>
+    <% for(let i=1;i<10;i++) { %>
+    <li><%= i %></li>
+    <%}%>
+  </body>
+</html>
