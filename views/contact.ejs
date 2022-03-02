@@ -8,6 +8,7 @@
       <div class="header">
         <div class="image">
           <img
+            id="contact-list-icon"
             src="https://cdn-icons-png.flaticon.com/512/733/733443.png"
             alt=""
           />
@@ -20,14 +21,22 @@
           <li>
             <p><%= i.name %></p>
             <p><%= i.phone %></p>
+            <a href="/delete-contact/<%= i.phone %>">
+              <img
+                id="delete-icon"
+                src="/images/delete-icon.png"
+                alt=""
+                srcset=""
+              />
+            </a>
           </li>
           <% } %>
         </ul>
       </div>
-      <form action="/contact" method="post">
+      <form action="/add-contact" method="post">
         <input type="text" name="name" placeholder="Enter Name" required />
         <input type="text" name="phone" placeholder="Phone Number" required />
-        <button type="submit">Add Contact</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   </body>

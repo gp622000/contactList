@@ -24,20 +24,13 @@ var contactList = [
   },
 ];
 
-app.get("/gyan", (req, res) => {
-  console.log(res);
-  return res.render("home", {
-    title: "this is gyan",
-  });
-});
-
 app.get("/", (req, res) => {
   return res.render("contact", {
     contactList,
   });
 });
 
-app.post("/contact", (req, res) => {
+app.post("/add-contact", (req, res) => {
   console.log(req.body);
   contactList.push({
     name: req.body.name,
@@ -46,9 +39,12 @@ app.post("/contact", (req, res) => {
   return res.redirect("/");
 });
 
-// app.delete("/delete-contact", (req, res) => {
-//   console.log(req.body);
-// });
+app.get("/delete-contact/:phone", (req, res) => {
+  contactList = contactList.filter((contact) => {
+    return contact.phone !== req.params.phone;
+  });
+  return res.redirect("/");
+});
 
 app.listen(8000, (err) => {
   if (err) {
