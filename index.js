@@ -7,6 +7,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded());
+app.use(express.json());
 
 var contactList = [
   {
@@ -44,6 +45,10 @@ app.post("/contact", (req, res) => {
   });
   return res.redirect("/");
 });
+
+// app.delete("/delete-contact", (req, res) => {
+//   console.log(req.body);
+// });
 
 app.listen(8000, (err) => {
   if (err) {
