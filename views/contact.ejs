@@ -5,24 +5,31 @@
   </head>
   <body>
     <div>
-      <h1>Contact List</h1>
-      <ul>
-        <% for(i of contactList) { %>
-        <li>
-          <p><%= i.name %></p>
-          <p><%= i.phone %></p>
-          <form action="">
-            <button type="submit">Delete</button>
-          </form>
-        </li>
-        <% } %>
-      </ul>
+      <div class="header">
+        <div class="image">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/733/733443.png"
+            alt=""
+          />
+        </div>
+        <div id="contact-list">My Contact List</div>
+      </div>
+      <div class="main">
+        <ul>
+          <% for(i of contactList) { %>
+          <li>
+            <p><%= i.name %></p>
+            <p><%= i.phone %></p>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+      <form action="/contact" method="post">
+        <input type="text" name="name" placeholder="Enter Name" required />
+        <input type="text" name="phone" placeholder="Phone Number" required />
+        <button type="submit">Add Contact</button>
+      </form>
     </div>
-    <form action="/contact" method="post">
-      <input type="text" name="name" placeholder="Enter Name" required />
-      <input type="text" name="phone" placeholder="Phone Number" required />
-      <button type="submit">Add Contact</button>
-    </form>
   </body>
   <script src="/js/home.js"></script>
 </html>
