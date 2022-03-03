@@ -1,4 +1,3 @@
-const { json } = require("body-parser");
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
@@ -15,21 +14,6 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded());
 app.use(express.static("assets"));
-
-// var contactList = [
-//   {
-//     name: "Gyan",
-//     phone: "123123123",
-//   },
-//   {
-//     name: "prakash",
-//     phone: "12312312323",
-//   },
-//   {
-//     name: "kumar",
-//     phone: "389434394349",
-//   },
-// ];
 
 app.get("/", (req, res) => {
   Contact.find({}, (err, contacts) => {
@@ -59,12 +43,8 @@ app.get("/delete-contact/:phone", (req, res) => {
       console.log("Err", err);
       return;
     }
-    console.log(contact);
     return res.redirect("/");
   });
-  //   contactList = contactList.filter((contact) => {
-  //     return contact.phone !== req.params.phone;
-  //   });
 });
 
 app.listen(8000, (err) => {
