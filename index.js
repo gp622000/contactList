@@ -37,8 +37,9 @@ app.post("/add-contact", async (req, res) => {
   return res.redirect("/");
 });
 
-app.get("/delete-contact/:phone", (req, res) => {
-  Contact.findOneAndDelete({ phone: req.params.phone }, (err, contact) => {
+app.get("/delete-contact/:id", (req, res) => {
+  const id = req.params.id;
+  Contact.findByIdAndDelete({ _id: id }, (err, contact) => {
     if (err) {
       console.log("Err", err);
       return;
